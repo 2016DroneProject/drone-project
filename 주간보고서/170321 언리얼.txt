@@ -1,0 +1,51 @@
+실습
+
+블루프린트_기본 다루는것을 좀 더 디테일하게 
+
+최상위 폴더
+
+레벨 : 맵(레벨)에디터 
+
+게임모드 
+
+객체 playercontroller ~~~네모칸 객체 
+움직임이가능한 객체들 pawn posses 소유하다(완벽히제어,빙의)
+완전히 내가가지고있는 개념 pawn이소유한 actor등을 제어하려면 playercontroller 
+
+객체를움직이는 세가지 요인 물리 지능 플레이어 
+
+pawn(객체) 지능이 pawn을 움직임 
+
+-------실습
+
+공백
+
+인스펙터창에 플레이어없는데 왜재생하면 플레이어나오는지?
+
+ㅍ노란색>>동적생성 
+
+ㅁ포르젝트세팅 맵&모드 >>default modes >>닫기 
+
+밑에 third치고 조이스틱더블클릭
+
+player controller 클래스 를 통해서 플레이어 컨트롤러 객체를 만듬 
+
+default pawn class >>thirdperson으로 되어있음 이걸로 정의되어있는 클래스로 객체 생성 >> 시작할때
+default pawn설정하지 않으면 (none)으로 시작하면 옆에 thirdpersonplayer없는거 확인할수있음
+
+posses를 해줘야함 (스크립트로할수도있고 자동으로할수도있음)
+
+
+docollisiontest 없애기(camera)
+
+player start없애기 
+
+mygamemode(블루프린트만드는것처럼) 프로젝트세팅에서해주기 
+
+바닥actor로
+
+바닥로컬원점만들기
+
+바닥다만들고
+
+레벨블루프린트만들기메인에서 블루프린트 눌러서 레벨블루프린트만들기 
