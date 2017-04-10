@@ -1,0 +1,11 @@
+fly forward: 	000	035
+fly in place:	037	072
+roar:		074	179	
+attack1:		181	221
+attack2:		223	309
+attack3:		311	361
+hit1:		363	413
+hit2:		415	465
+death:		467	499
+
+Tris: 4188
