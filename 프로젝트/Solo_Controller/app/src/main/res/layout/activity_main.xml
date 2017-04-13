@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.solo.kpu_game.solo_ui.MainActivity">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/imageView"
+            android:layout_gravity="left|bottom"
+            android:src="@drawable/handle"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/movestick"
+            android:layout_gravity="left|bottom|center"
+            android:src="@drawable/handlebutton"
+            android:layout_marginBottom="95dp"
+            android:layout_marginLeft="97dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0m"
+            android:id="@+id/AltitudeText"
+            android:layout_gravity="top|left"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="60dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0m/s"
+            android:id="@+id/SpeedText"
+            android:layout_gravity="top|left"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="60dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Alt :"
+            android:id="@+id/textView"
+            android:layout_gravity="left|top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="00%"
+            android:id="@+id/BatteryText"
+            android:layout_gravity="left|top"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="55dp"
+            android:textColor="#5eff00"
+            android:textSize="55dp"
+            android:textAlignment="center" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="0dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Spd :"
+            android:id="@+id/textView2"
+            android:layout_gravity="left|top"
+            android:layout_marginTop="40dp" />
+
+        <Button
+            android:background="@drawable/mapicon"
+            android:layout_width="65dp"
+            android:layout_height="49dp"
+            android:id="@+id/mapCreateBtn"
+            android:layout_marginLeft="390dp"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="37dp"
+            android:id="@+id/attackBtn"
+            android:background="@drawable/attack2"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="150dp"/>
+
+        <Button
+            android:background="@drawable/stop2"
+            android:layout_width="90dp"
+            android:layout_height="49dp"
+            android:id="@+id/stopstop"
+            android:layout_marginTop="130dp"
+            android:layout_marginLeft="480dp"/>
+
+        <Button
+            android:background="@drawable/altitude"
+            android:layout_width="100dp"
+            android:layout_height="37dp"
+            android:id="@+id/AltitudeBtn"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="480dp"/>
+
+        <Button
+            android:text="CONNECT"
+            android:id="@+id/ConnectBtn"
+            android:onClick="onBtnConnectTap"
+            android:layout_column="0"
+            android:layout_marginLeft="270dp"
+            android:layout_width="108dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/RightRotBtn"
+            android:background="@drawable/rightrot"
+            android:layout_column="2"
+            android:layout_marginLeft="460dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginBottom="0dp" />
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/UpBtn"
+            android:background="@drawable/up"
+            android:layout_column="1"
+            android:layout_marginLeft="370dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="140dp"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/DownBtn"
+            android:background="@drawable/down"
+            android:layout_column="1"
+            android:layout_marginLeft="370dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="260dp" />
+
+        <Button
+
+            android:background="@drawable/disturb"
+            android:layout_width="95dp"
+            android:layout_height="44dp"
+            android:id="@+id/disturb"
+            android:layout_marginLeft="480dp"
+            android:layout_marginTop="70dp"/>
+
+        <Button
+            android:id="@+id/WeaponBtn"
+            android:layout_width="115dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/weapon" />
+
+        <Button
+            android:id="@+id/GpsSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="480dp"
+            android:layout_marginTop="300dp"
+            android:text="GpsSet" />
+
+        <Button
+            android:id="@+id/LeftRotBtn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/leftrot" />
+
+        <Button
+            android:id="@+id/ArmBtn"
+            android:layout_width="108dp"
+            android:layout_height="50dp"
+            android:layout_column="3"
+            android:layout_marginLeft="150dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:onClick="onArmButtonTap"
+            android:text="ARM" />
+
+    </FrameLayout>
+</RelativeLayout>
