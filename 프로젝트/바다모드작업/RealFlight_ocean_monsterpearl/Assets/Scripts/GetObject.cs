@@ -24,18 +24,17 @@ public class GetObject : MonoBehaviour {
     public GameObject stars;
     LODGroup lod;
 
-    public GameObject mesh1;
-    public GameObject mesh2;
-    public GameObject mesh3;
+    GameObject shellnum;
     void Start()
     {
 
         min_dist = 2f;
 
         near = false;
+        shellnum = GameObject.Find("StageNum");
         player = GameObject.Find("CameraTarget");
-        target = GameObject.Find("ImageTarget");
-        targetCheck = GameObject.Find("TargetCheck");
+        target = GameObject.Find("ImageTarget1");
+        targetCheck = GameObject.Find("TargetCheck1");
         box = targetCheck.GetComponent<BoxCollider>();
 
         make = target.GetComponent<SpawnShell>();
@@ -65,14 +64,18 @@ public class GetObject : MonoBehaviour {
         if (other.gameObject == player)
         {
             Debug.Log("충돌함");
-            Destroy(mesh1);
-            Destroy(mesh2);
-            Destroy(mesh3);
             lod.enabled = false;
             if (check == 0)
             {
                 
                 ac.Play();
+
+                foreach(Transform child in transform)
+                {
+                    if(child.tag == "Shell")
+                        child.GetComponent<MeshRenderer>().enabled = false;
+                }
+                shellnum.SendMessage("AddShell");
                 stars.SetActive(true);
                 make.makeShell();
                 check++;
@@ -80,8 +83,7 @@ public class GetObject : MonoBehaviour {
 
             }
             Debug.Log("없어짐");
-            
-            Destroy(this.gameObject, 1f);
+            Destroy(this.gameObject,1f);
         }
     }
 
