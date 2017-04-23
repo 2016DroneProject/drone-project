@@ -31,6 +31,12 @@ public class MonsterHP : MonoBehaviour {
 
     private float m_fAlpha = 1f;
 
+    GameObject score;
+    GameObject makebat;
+    GameObject makeshark;
+
+    int num = 0;
+
     void Awake()
     {
         //dragonbatAgent = GetComponent<DragonBatAgent>();
@@ -44,6 +50,10 @@ public class MonsterHP : MonoBehaviour {
         renderer = GetComponentInChildren<SkinnedMeshRenderer>();
         anim = GetComponent<Animator>();
         capsuleCollider = GetComponentInChildren<CapsuleCollider>();
+
+        score = GameObject.Find("StageNum");
+        makebat = GameObject.Find("ImageTarget3");
+        makeshark = GameObject.Find("ImageTarget4");
     }
 
     void Start()
@@ -122,17 +132,24 @@ public class MonsterHP : MonoBehaviour {
 
         if (this.gameObject.tag == "Bat")
         {
-            //MN.num += 1;
+            if(num == 0)
+            {
+                score.SendMessage("AttackBat");
+                makebat.SendMessage("makeBat");
+                num++;
+            }
+          
+            
         }
 
         else if (this.gameObject.tag == "Eel")
         {
-            //MN2.n_eel += 1;
+           
         }
 
         else if (this.gameObject.tag == "Shark")
         {
-            //MN2.n_shark += 1;
+            
         }
 
         GetComponent<Rigidbody>().isKinematic = true;

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnMonster : MonoBehaviour {
+public class ShellRotate : MonoBehaviour {
+
+    public float speed;
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +13,8 @@ public class SpawnMonster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        this.transform.Rotate(0, speed * Time.deltaTime, 0, 0);
+
 		
 	}
 }

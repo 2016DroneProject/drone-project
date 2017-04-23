@@ -6,6 +6,9 @@ public class PearlAttack : MonoBehaviour {
 
     public int damage;
 
+    
+    
+
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Bat" || other.tag == "Eel" || other.tag == "Shark")

@@ -19,7 +19,7 @@ public class DragonBatAgent : MonoBehaviour {
     private Animator anim;
     //private PlayerMove playerMove;
     private MonsterHP monsterHP;
-    private DragoBatAttack dragonbatAttack;
+    //private DragoBatAttack dragonbatAttack;
     private Vector3 target;
     private int WayPointInd = 0;
 
@@ -28,7 +28,7 @@ public class DragonBatAgent : MonoBehaviour {
         player = GameObject.FindWithTag("Player");
         //playerMove = player.GetComponent<PlayerMove>();
         anim = GetComponent<Animator>();
-        dragonbatAttack = GetComponent<DragoBatAttack>();
+        //dragonbatAttack = GetComponent<DragoBatAttack>();
         monsterHP = GetComponent<MonsterHP>();
     }
 
@@ -69,7 +69,7 @@ public class DragonBatAgent : MonoBehaviour {
                 case State.ATTACK:
                     {
                         //if (!playerMove.isUnderWater)
-                            dragonbatAttack.Attack();
+                            //dragonbatAttack.Attack();
                         break;
                     }
             }
