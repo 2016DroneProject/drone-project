@@ -4,18 +4,14 @@ using System.Text;
 
 public class Order : MonoBehaviour
 {
-
-    public GameObject gun;
-
-    GunShootingPearl gp;
-
-
+    GameObject stage;
+    StageNum st; 
 
     private static Order s_Instance = null;
     void Start()
     {
         DontDestroyOnLoad(this);
-        gp = gun.GetComponent<GunShootingPearl>();
+        st = stage.GetComponent<StageNum>();
 
         
 
@@ -70,10 +66,13 @@ public class Order : MonoBehaviour
         if(rcvPack.bAttack == true)
         {
 
-            gp.shot = true;
+            st.Attack= true;
             Debug.Log("발사");
             rcvPack.bAttack = false;
         }
+
+        st.altitude = rcvPack.altitude;
+        st.item = rcvPack.KindItem;
 
         Debug.Log("아이템: " + rcvPack.KindItem);
     }

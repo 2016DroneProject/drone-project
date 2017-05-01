@@ -23,7 +23,7 @@ public class PearlNum : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        tex.text = "진주 : " + num.pearl_num;
+        tex.text = num.pearl_num + " 개";
 
 
     }

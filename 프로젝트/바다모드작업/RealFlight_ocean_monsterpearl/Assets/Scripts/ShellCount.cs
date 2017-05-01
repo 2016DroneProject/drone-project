@@ -21,7 +21,7 @@ public class ShellCount : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        text.text = "조개: " + num.shell_num;
+        text.text = num.shell_num + " 개";
 		
 	}
 

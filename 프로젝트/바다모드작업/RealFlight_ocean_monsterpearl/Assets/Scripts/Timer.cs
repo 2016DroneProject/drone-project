@@ -14,13 +14,18 @@ public class Timer : MonoBehaviour {
     StageNum score;
 
     public GameObject end;
+
+    public GameObject bar;
+    Image barimg;
+    float saveTime;
 	// Use this for initialization
 	void Start () {
         RemainTime = GetComponent<Text>();
         
         stage = GameObject.Find("StageNum");
         score = stage.GetComponent<StageNum>();
-
+        barimg = bar.GetComponent<Image>();
+        saveTime = TimeCount;
 		
 	}
 	
@@ -31,9 +36,9 @@ public class Timer : MonoBehaviour {
         {
             TimeCount -= Time.deltaTime;
             int timecalculate = (int)TimeCount;
-            minute = timecalculate / 60;
-            second = timecalculate % 60;
-            RemainTime.text = "남은 시간: " + minute + "분 " + second + "초";
+            RemainTime.text = "Time: "+ timecalculate;
+
+            barimg.fillAmount = timecalculate / saveTime;
         }
 
         else

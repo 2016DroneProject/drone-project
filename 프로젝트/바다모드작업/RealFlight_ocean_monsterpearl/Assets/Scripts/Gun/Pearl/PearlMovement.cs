@@ -34,18 +34,6 @@ public class PearlMovement : MonoBehaviour {
         rb.AddForce(shotPos.transform.forward * power);
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "MakePearl")
-        {
-            if(num == 0)
-            {
-                ac.Play();
-                stage.SendMessage("AddPearl");
-                num++;
-                Destroy(this.gameObject,2f);
-            }
-            
-        }
-    }
+  
+    
 }

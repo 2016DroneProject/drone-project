@@ -19,22 +19,39 @@ public class StageNum : MonoBehaviour {
 
     Text scoretxt;
 
-    public GameObject Vaccum;
-    public GameObject Gun;
+    GameObject Vaccum;
+    GameObject Gun;
 
     private static StageNum s_Instance = null;
+
+
+    public float altitude = 0;
+    public int item = 0;
+    public bool Attack = false;
+
+    GameObject height;
+    Text h_txt;
+
+
     // Use this for initialization
     void Start () {
         DontDestroyOnLoad(this);
         score_text = GameObject.Find("Score");
         scoretxt = score_text.GetComponent<Text>();
+        Vaccum = GameObject.Find("Vaccum");
+        Gun = GameObject.Find("RightGun");
+        height = GameObject.Find("Height");
+        h_txt = height.GetComponent<Text>();
+            
 
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        scoretxt.text = "점수: " + score;
+        scoretxt.text = "Score: " + score;
+        h_txt.text = "HEIGHT"+" \n" + altitude + " M";
+
 
         if (num == 1)
         {
@@ -47,6 +64,11 @@ public class StageNum : MonoBehaviour {
         {
             Gun.SetActive(true);
             Vaccum.SetActive(false);
+        }
+
+        if(Attack == true)
+        {
+            Gun.SendMessage("Shotboolean");
         }
 
     }
