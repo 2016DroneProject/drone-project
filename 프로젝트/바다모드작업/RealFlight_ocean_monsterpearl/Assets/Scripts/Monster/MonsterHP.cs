@@ -89,6 +89,12 @@ public class MonsterHP : MonoBehaviour {
             GetComponent<AudioSource>().Play();
         }
 
+        else if (this.gameObject.tag == "Shark")
+        {
+            GetComponent<AudioSource>().clip = BatdamagedClip;
+            GetComponent<AudioSource>().Play();
+        }
+
         if (IsDead)
             return;
 
@@ -144,16 +150,26 @@ public class MonsterHP : MonoBehaviour {
 
         else if (this.gameObject.tag == "Eel")
         {
-           
+            if (num == 0)
+            {
+                score.SendMessage("AttackBat");
+                makebat.SendMessage("makeEel");
+                num++;
+            }
         }
 
         else if (this.gameObject.tag == "Shark")
         {
-            
+            if (num == 0)
+            {
+                score.SendMessage("AttackShark");
+                makeshark.SendMessage("makeBat");
+                num++;
+            }
         }
 
         GetComponent<Rigidbody>().isKinematic = true;
 
-        Destroy(gameObject, 3.5f);
+        Destroy(gameObject, 0.7f);
     }
 }

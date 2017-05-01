@@ -14,6 +14,8 @@ public class PearlMovement : MonoBehaviour {
     GameObject stage;
     StageNum stage_num;
     int num;
+
+    AudioSource ac;
    
     // 속도 = 거리/시간 (오브젝트의 이동속도 : m/s
     // 거리 = 속도x시간(오브젝트가 1프레임에 이동할 거리)
@@ -23,6 +25,7 @@ public class PearlMovement : MonoBehaviour {
         stage = GameObject.Find("StageNum");
         shotPos = GameObject.Find("ARCamera/RightGun/RayGun_EW1/Barrel/Shotpos").transform;
         rb = GetComponent<Rigidbody>();
+        ac = GetComponent<AudioSource>();
     }
 
 
@@ -37,9 +40,10 @@ public class PearlMovement : MonoBehaviour {
         {
             if(num == 0)
             {
+                ac.Play();
                 stage.SendMessage("AddPearl");
                 num++;
-                Destroy(this.gameObject);
+                Destroy(this.gameObject,2f);
             }
             
         }

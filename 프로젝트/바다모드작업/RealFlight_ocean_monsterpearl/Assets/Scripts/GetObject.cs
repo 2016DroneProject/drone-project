@@ -41,8 +41,8 @@ public class GetObject : MonoBehaviour {
 
         ac = this.gameObject.GetComponent<AudioSource>();
         lod = this.GetComponent<LODGroup>();
-        Debug.Log(player);
-        Debug.Log("dd" + target);
+        //Debug.Log(player);
+        //Debug.Log("dd" + target);
 
     }
 
@@ -63,7 +63,7 @@ public class GetObject : MonoBehaviour {
     {
         if (other.gameObject == player)
         {
-            Debug.Log("충돌함");
+            //Debug.Log("충돌함");
             lod.enabled = false;
             if (check == 0)
             {
@@ -79,10 +79,10 @@ public class GetObject : MonoBehaviour {
                 stars.SetActive(true);
                 make.makeShell();
                 check++;
-                Debug.Log("만들어짐");
+               // Debug.Log("만들어짐");
 
             }
-            Debug.Log("없어짐");
+           // Debug.Log("없어짐");
             Destroy(this.gameObject,1f);
         }
     }

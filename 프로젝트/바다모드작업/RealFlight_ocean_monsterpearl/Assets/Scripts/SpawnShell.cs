@@ -26,7 +26,7 @@ public class SpawnShell : MonoBehaviour {
         GameObject making;
 
         float x = Random.Range(-100.0f, 100.0f);
-        float y = Random.Range(100f, 200.0f);
+        float y = Random.Range(150f, 250.0f);
         float z = Random.Range(-100.0f, 100.0f);
 
         making = Instantiate(shell, new Vector3(x, y, z), new Quaternion(0, 0, 0, 0));

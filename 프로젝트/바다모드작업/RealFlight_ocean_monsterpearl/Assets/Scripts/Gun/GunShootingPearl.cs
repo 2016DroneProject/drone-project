@@ -18,28 +18,30 @@ public class GunShootingPearl : MonoBehaviour {
     public GameObject stage;
     StageNum stage_num;
 
+    AudioSource ac;
     void Start()
     {
         shot = false;
 
         stage_num = stage.GetComponent<StageNum>();
+        ac = GetComponent<AudioSource>();
     }
 
     void Update()
     {
 
         // 컨트롤러 연동하면 마우스 입력 버튼 bool 변수(컨트롤러에서 받아오는)로 변경
-        if (/*(stage_num.num == 3 || stage_num.num == 4) &&*/ Input.GetMouseButtonDown(0) && Time.time > nextShootRate || shot == true && Time.time > nextShootRate)
+        if ((stage_num.num == 3 || stage_num.num == 4) && ((Input.GetMouseButtonDown(0) && Time.time > nextShootRate) ||( shot == true && Time.time > nextShootRate)))
         {
 
-            //if(stage_num.pearl_num > 0)
-            //{
+            if(stage_num.pearl_num > 0)
+            {
                 ShootPearl();
                 shot = false;
-            //}     
+            }     
         }
 
-        else if (stage_num.num == 2 && Input.GetMouseButtonDown(0) && Time.time > nextShootRate || shot == true && Time.time > nextShootRate)
+        else if (stage_num.num == 2 && ((Input.GetMouseButtonDown(0) && Time.time > nextShootRate) || (shot == true && Time.time > nextShootRate)))
         {
             if (stage_num.shell_num >= 3)
             {
@@ -53,15 +55,17 @@ public class GunShootingPearl : MonoBehaviour {
     void ShootPearl()
     {
         //
+        ac.Play();
         nextShootRate = Time.time + shootRate;
         // 진주 발사 부분
 
-        //stage_num.pearl_num--;
+        stage_num.pearl_num--;
         Instantiate(pearl, shotPos.position, pearl.transform.rotation);
     }
 
     void ShootShell()
     {
+        ac.Play();
         nextShootRate = Time.time + shootRate;
         // 조개 발사 부분
         stage_num.shell_num -= 3;

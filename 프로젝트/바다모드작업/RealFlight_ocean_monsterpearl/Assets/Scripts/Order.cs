@@ -9,8 +9,12 @@ public class Order : MonoBehaviour
 
     GunShootingPearl gp;
 
+
+
+    private static Order s_Instance = null;
     void Start()
     {
+        DontDestroyOnLoad(this);
         gp = gun.GetComponent<GunShootingPearl>();
 
         
@@ -44,8 +48,8 @@ public class Order : MonoBehaviour
         public double dMoveX;
         public double dMoveY;
         public bool bDisturb;
+        public int KindItem;
     }
-
 
     public SendPacket sndPack = new SendPacket();
     public ReceivePacket rcvPack = new ReceivePacket();
@@ -70,6 +74,8 @@ public class Order : MonoBehaviour
             Debug.Log("발사");
             rcvPack.bAttack = false;
         }
+
+        Debug.Log("아이템: " + rcvPack.KindItem);
     }
 
     public void SendPack(SENDID id, bool value, bool bMarkerRender)
@@ -84,6 +90,12 @@ public class Order : MonoBehaviour
 
         udpSend.sendStructure(data);
 
+    }
+
+    void OnApplicationQuit()
+    {
+        s_Instance = null;
+        //게임종료시 삭제. 
     }
 
 }
