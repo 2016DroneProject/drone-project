@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Vuforia;
 
 public class ResourcesManager : MonoBehaviour {
+
+    public Slider resourceSlider;
+    public Text[] resourceText;
 
     public int armorCount;
     public int hpCount;
@@ -16,7 +20,8 @@ public class ResourcesManager : MonoBehaviour {
     private DefaultTrackableEventHandler bHandler;
     private DefaultTrackableEventHandler gHandler;
 
-    void Awake() {
+    void Awake()
+    {
         yellowMarker = GameObject.FindWithTag("ArmorResources");
         blueMarker = GameObject.FindWithTag("HpResources");
         greenMarker = GameObject.FindWithTag("AttackResources");
@@ -30,10 +35,17 @@ public class ResourcesManager : MonoBehaviour {
         armorCount = 0;
         hpCount = 0;
         attkCount = 0;
+
+        
+        resourceSlider.value = 0;
+        resourceSlider.gameObject.SetActive(false);
+        resourceText[0].gameObject.SetActive(false);
+        resourceText[1].gameObject.SetActive(false);
+        resourceText[2].gameObject.SetActive(false);
     }
 
-    void Update() {
-
+    void Update()
+    {
         GetResources();
     }
 
@@ -47,14 +59,20 @@ public class ResourcesManager : MonoBehaviour {
             {
                 if (yHandler.ytrackingTimer >= 1.5f && yHandler.armorCapacity)
                 {
-                    armorCount++;
+                    resourceSlider.gameObject.SetActive(true);
+                    resourceText[0].gameObject.SetActive(true);
+                    resourceSlider.maxValue = 20;
 
+                    armorCount++;
+                    resourceSlider.value = armorCount;
+                    resourceText[0].text = armorCount.ToString() + " / 20";
                     yHandler.ytrackingTimer = 0f;
 
                     if (armorCount >= 20)
                     {
                         yHandler.armorCapacity = false;
                     }
+
                 }
             }
         }
@@ -68,8 +86,13 @@ public class ResourcesManager : MonoBehaviour {
             {
                 if (bHandler.btrackingTimer >= 1f && bHandler.hpCapacity)
                 {
-                    hpCount++;
+                    resourceSlider.gameObject.SetActive(true);
+                    resourceText[1].gameObject.SetActive(true);
+                    resourceSlider.maxValue = 30;
 
+                    hpCount++;
+                    resourceSlider.value = hpCount;
+                    resourceText[1].text = hpCount.ToString() + " / 30";
                     bHandler.btrackingTimer = 0f;
 
                     if (hpCount >= 30)
@@ -88,8 +111,13 @@ public class ResourcesManager : MonoBehaviour {
             {
                 if (gHandler.gtrackingTimer >= 0.5f && gHandler.attackCapacity)
                 {
-                    attkCount++;
+                    resourceSlider.gameObject.SetActive(true);
+                    resourceText[2].gameObject.SetActive(true);
+                    resourceSlider.maxValue = 60;
 
+                    attkCount++;
+                    resourceSlider.value = attkCount;
+                    resourceText[2].text = attkCount.ToString() + " / 60";
                     gHandler.gtrackingTimer = 0f;
 
                     if (attkCount >= 60)
@@ -97,7 +125,41 @@ public class ResourcesManager : MonoBehaviour {
                         gHandler.attackCapacity = false;
                     }
                 }
+
             }
         }
+
+        if (armorCount <= 0 && !yHandler.armorCapacity)
+        {
+            yHandler.armorCapacity = true;
+
+            resourceSlider.value = armorCount;
+            resourceText[0].text = armorCount.ToString() + " / 20";
+        }
+
+        if (hpCount <= 0 && !bHandler.hpCapacity)
+        {
+            bHandler.hpCapacity = true;
+
+            resourceSlider.value = hpCount;
+            resourceText[1].text = hpCount.ToString() + " / 60";
+        }
+
+        if (attkCount <= 0 && !gHandler.attackCapacity)
+        {
+            gHandler.attackCapacity = true;
+
+            resourceSlider.value = attkCount;
+            resourceText[2].text = attkCount.ToString() + " / 60";
+        }
+
+        if(resourceSlider.value <= resourceSlider.minValue)
+        {
+            resourceSlider.gameObject.SetActive(false);
+            resourceText[0].gameObject.SetActive(false);
+            resourceText[1].gameObject.SetActive(false);
+            resourceText[2].gameObject.SetActive(false);
+        }
     }
+
 }

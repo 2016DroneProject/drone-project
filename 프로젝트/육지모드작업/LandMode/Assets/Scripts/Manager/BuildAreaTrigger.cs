@@ -13,8 +13,9 @@ public class BuildAreaTrigger : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "RotRock" || other.gameObject.name == "RotLog" || other.gameObject.name == "RotBrick")
+        if(other.gameObject.tag == "RotRock" || other.gameObject.tag == "logs" || other.gameObject.tag == "bricks")
         {
+            Debug.Log("build");
             Destroy(other.gameObject);
             isVisibleBuilding = true;
         }
