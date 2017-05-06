@@ -9,7 +9,7 @@ public class SpawnShell : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        for(int i = 0; i < 20; i++)
+        for(int i = 0; i < 60; i++)
         {
             makeShell();
         }
@@ -25,13 +25,13 @@ public class SpawnShell : MonoBehaviour {
     {
         GameObject making;
 
-        float x = Random.Range(-100.0f, 100.0f);
-        float y = Random.Range(150f, 250.0f);
-        float z = Random.Range(-100.0f, 100.0f);
+        float x = Random.Range(-250.0f, 250.0f);
+        float y = Random.Range(200f, 600.0f);
+        float z = Random.Range(-250.0f, 250.0f);
 
         making = Instantiate(shell, new Vector3(x, y, z), new Quaternion(0, 0, 0, 0));
         making.transform.parent = transform;
-        making.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
+        making.transform.localScale = new Vector3(2f, 2f,2f);
         
     }
 }

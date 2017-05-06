@@ -32,17 +32,16 @@ public class StageNum : MonoBehaviour {
     GameObject height;
     Text h_txt;
 
-
     // Use this for initialization
     void Start () {
-        DontDestroyOnLoad(this);
+
         score_text = GameObject.Find("Score");
         scoretxt = score_text.GetComponent<Text>();
         Vaccum = GameObject.Find("Vaccum");
         Gun = GameObject.Find("RightGun");
         height = GameObject.Find("Height");
         h_txt = height.GetComponent<Text>();
-            
+      
 
 		
 	}
@@ -52,6 +51,10 @@ public class StageNum : MonoBehaviour {
         scoretxt.text = "Score: " + score;
         h_txt.text = "HEIGHT"+" \n" + altitude + " M";
 
+        GameObject UDP = GameObject.Find("UDP");
+        Order udporder = UDP.GetComponent<Order>();
+
+        udporder.Score = score;
 
         if (num == 1)
         {
@@ -115,9 +118,5 @@ public class StageNum : MonoBehaviour {
         score += 500;
     }
 
-    void OnApplicationQuit()
-    {
-        s_Instance = null;
-        //게임종료시 삭제. 
-    }
+   
 }

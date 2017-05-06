@@ -22,8 +22,8 @@ public class PearlMovement : MonoBehaviour {
     // 초속 * Time.deltaTime
     void Awake()
     {
-        stage = GameObject.Find("StageNum");
-        shotPos = GameObject.Find("ARCamera/RightGun/RayGun_EW1/Barrel/Shotpos").transform;
+       
+        shotPos = GameObject.Find("Shotpos").transform;
         rb = GetComponent<Rigidbody>();
         ac = GetComponent<AudioSource>();
     }

@@ -28,7 +28,7 @@ public class SpawnBat : MonoBehaviour {
         GameObject making;
 
         float x = Random.Range(-150.0f,150.0f);
-        float y = Random.Range(100.0f, 230.0f);
+        float y = Random.Range(250.0f, 450.0f);
         float z = Random.Range(-100.0f, 100.0f);
         int w = Random.Range(-180, 180);
 

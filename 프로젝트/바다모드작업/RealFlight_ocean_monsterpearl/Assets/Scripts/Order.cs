@@ -4,18 +4,21 @@ using System.Text;
 
 public class Order : MonoBehaviour
 {
-    GameObject stage;
-    StageNum st; 
+ 
 
     private static Order s_Instance = null;
+
+    public int Score;
+
     void Start()
     {
         DontDestroyOnLoad(this);
-        st = stage.GetComponent<StageNum>();
+        //st = stage.GetComponent<StageNum>();
 
-        
+
 
     }
+
     public enum SENDID { SID_BACHOM, SID_STUN, SID_SPEED, SID_TIME, SID_SPEEDUP};
     // Use this for initialization
 
@@ -63,7 +66,10 @@ public class Order : MonoBehaviour
         json = Encoding.UTF8.GetString(ord);
         rcvPack = JsonUtility.FromJson<ReceivePacket>(json);
 
-        if(rcvPack.bAttack == true)
+        GameObject game = GameObject.Find("StageNum");
+        StageNum st = game.GetComponent<StageNum>();
+
+        if (rcvPack.bAttack == true)
         {
 
             st.Attack= true;
