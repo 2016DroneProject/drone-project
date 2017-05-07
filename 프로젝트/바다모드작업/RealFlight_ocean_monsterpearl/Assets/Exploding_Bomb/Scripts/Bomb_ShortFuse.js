@@ -122,6 +122,7 @@ function Explosion()
     SparkTrailsParticles.Play();
     ExplodeAudio.Play();
     FadeLight();
+
     // nobomb = 1; 
 }
 

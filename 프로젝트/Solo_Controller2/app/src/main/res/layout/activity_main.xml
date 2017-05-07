@@ -124,22 +124,6 @@
             android:layout_marginLeft="150dp"/>
 
         <Button
-            android:background="@drawable/stop2"
-            android:layout_width="90dp"
-            android:layout_height="49dp"
-            android:id="@+id/stopstop"
-            android:layout_marginTop="130dp"
-            android:layout_marginLeft="480dp"/>
-
-        <Button
-            android:background="@drawable/altitude"
-            android:layout_width="100dp"
-            android:layout_height="37dp"
-            android:id="@+id/AltitudeBtn"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="480dp"/>
-
-        <Button
             android:text="CONNECT"
             android:id="@+id/ConnectBtn"
             android:onClick="onBtnConnectTap"
@@ -182,29 +166,12 @@
             android:layout_marginTop="260dp" />
 
         <Button
-
-            android:background="@drawable/disturb"
-            android:layout_width="95dp"
-            android:layout_height="44dp"
-            android:id="@+id/disturb"
-            android:layout_marginLeft="480dp"
-            android:layout_marginTop="70dp"/>
-
-        <Button
             android:id="@+id/WeaponBtn"
             android:layout_width="115dp"
             android:layout_height="37dp"
             android:layout_marginLeft="270dp"
             android:layout_marginTop="80dp"
             android:background="@drawable/weapon" />
-
-        <Button
-            android:id="@+id/GpsSet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="480dp"
-            android:layout_marginTop="300dp"
-            android:text="GpsSet" />
 
         <Button
             android:id="@+id/LeftRotBtn"
@@ -226,14 +193,6 @@
             android:layout_marginTop="10dp"
             android:onClick="onArmButtonTap"
             android:text="ARM" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="115dp"
-            android:layout_height="37dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="130dp"
-            android:text="text"/>
 
 
     </FrameLayout>

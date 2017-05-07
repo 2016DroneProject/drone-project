@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
     //첫마커렌더됬을때 이동막는것
     boolean bTrapRender = false;
     //
-    float fDroneSpeedDecreaseValue = 400.f;
+    float fDroneSpeedDecreaseValue = 900.f;
 
     public interface Trap_Id {
         int BACK_HOME = 0;
@@ -234,47 +234,10 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
         //--------
         vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 
-        TextView textview = (TextView)findViewById(R.id.textView3);
 
 
-        textview.setText("item"+kindofitem);
 
-        disturbBtn = (Button)findViewById(R.id.disturb);
-        disturbBtn.setOnTouchListener(new View.OnTouchListener(){
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int action = event.getAction();
 
-                if (action == MotionEvent.ACTION_DOWN) {
-                    vibrator.vibrate(100);
-                    UDPPacketDisturbSend();
-                    disturbBtn.setBackgroundResource(R.drawable.disturbsel);
-                } else if (action == MotionEvent.ACTION_UP) {
-                    disturbBtn.setBackgroundResource(R.drawable.disturb);
-                }
-                return false;
-            }
-        });
-
-        altitudebtn = (Button)findViewById(R.id.AltitudeBtn);
-        altitudebtn.setOnTouchListener(new View.OnTouchListener(){
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int action = event.getAction();
-
-                if (action == MotionEvent.ACTION_DOWN) {
-                    vibrator.vibrate(100);
-                    if(bAltitude_Maintain == false)
-                        bAltitude_Maintain = true;
-                    else
-                        bAltitude_Maintain = false;
-                    altitudebtn.setBackgroundResource(R.drawable.altitudesel);
-                } else if (action == MotionEvent.ACTION_UP) {
-                    altitudebtn.setBackgroundResource(R.drawable.altitude);
-                }
-                return false;
-            }
-        });
 
 //        Button CenterPosbtn = (Button)findViewById(R.id.centerpos);
 //        CenterPosbtn.setOnClickListener(new Button.OnClickListener(){
@@ -285,32 +248,8 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
 //            }
 //        });
 
-        Button GpsSetBtn = (Button)findViewById(R.id.GpsSet);
-        GpsSetBtn.setOnClickListener(new Button.OnClickListener(){
-            public void onClick(View v){
-                vibrator.vibrate(100);
-                bGpsGet = true;
-            }
-        });
 
-        stopBtn = (Button)findViewById(R.id.stopstop);
-        stopBtn.setOnTouchListener(new View.OnTouchListener(){
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int action = event.getAction();
 
-                if (action == MotionEvent.ACTION_DOWN) {
-                    vibrator.vibrate(100);
-                    stopDrone();
-                    alertUser("stopstopstop");
-                    mapCreateComplete = false;
-                    stopBtn.setBackgroundResource(R.drawable.stop2sel);
-                } else if (action == MotionEvent.ACTION_UP) {
-                    stopBtn.setBackgroundResource(R.drawable.stop2);
-                }
-                return false;
-            }
-        });
 
 
         mapCreate_btn = (Button)findViewById(R.id.mapCreateBtn);
@@ -510,6 +449,7 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
 
                         stopDrone();
                         UDPPacketMoveXYzeroSend();
+
                         break;
                     case MotionEvent.ACTION_POINTER_DOWN:
                         break;
@@ -806,13 +746,8 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
                 DroneStun();
                 DroneControl_Stop();
 
-                TextView textview = (TextView)findViewById(R.id.textView3);
 
 
-                textview.setText("item"+kindofitem);
-
-                if(bAltitude_Maintain == true)
-                    Altitude_Maintain();
 
                 if(mapCreateComplete == true)
                     //Range_Limit();
@@ -1444,6 +1379,7 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
         PC_send_packet.dMoveX = mx;
         PC_send_packet.dMoveY = my;
 
+
         PC_send_packet.bDisturb = false;
 
         mSendDroneThread = new SendPacket_to_PC();
@@ -1485,6 +1421,7 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
         PC_send_packet.bWeaponChange = true;
         PC_send_packet.bWeaponChangeR = true;
         PC_send_packet.kind_item = kindofitem;
+        kindofitem = 0;
 
 
         PC_send_packet.dVariationAngle = yawVariation;
@@ -1593,52 +1530,7 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
         new Thread(mSendDroneThread).start();
     }
 
-    public void UDPPacketDisturbSend(){
-        Altitude droneAltitude = this.drone.getAttribute(AttributeType.ALTITUDE);
-        Gps droneGps = this.drone.getAttribute(AttributeType.GPS);
-        Attitude droneAttitude = this.drone.getAttribute(AttributeType.ATTITUDE);
 
-        if(bMiniMapPointSet)
-        {
-            PC_send_packet.ltLatitude = (float)dLTlati;
-            PC_send_packet.ltLongitude = (float)dLTlong;
-
-            PC_send_packet.lbLatitude = (float)dLBlati;
-            PC_send_packet.lbLongitude = (float)dLBlong;
-
-            PC_send_packet.rtLatitude = (float)dRTlati;
-            PC_send_packet.rtLongitude = (float)dRTlong;
-
-            PC_send_packet.rbLatitude = (float)dRBlati;
-            PC_send_packet.rbLongitude = (float)dRBlong;
-        }
-
-        PC_send_packet.altitude = (float)droneAltitude.getAltitude();
-        if(bGpsGet)
-        {
-            PC_send_packet.longitude = (float) droneGps.getPosition().getLongitude();
-            PC_send_packet.Latitude = (float) droneGps.getPosition().getLatitude();
-        }
-        PC_send_packet.pitch = (float)droneAttitude.getPitch();
-        PC_send_packet.roll = (float)droneAttitude.getRoll();
-        PC_send_packet.yaw = (float)droneAttitude.getYaw();
-
-        PC_send_packet.speed = 3.5f;
-        PC_send_packet.bAttack_Ready = false;
-        PC_send_packet.bWeaponChange = false;
-        PC_send_packet.bWeaponChangeR = false;
-        PC_send_packet.kind_item = 0;
-        PC_send_packet.dVariationAngle = yawVariation;
-
-        PC_send_packet.dMoveX = 0;
-        PC_send_packet.dMoveY = 0;
-
-        PC_send_packet.bDisturb = true;
-
-        mSendDroneThread = new SendPacket_to_PC();
-        mSendDroneThread.GetInfo(pc_ip, port_send, PC_send_packet);
-        new Thread(mSendDroneThread).start();
-    }
 
     public void UDPPacketReceive()
     {
@@ -1965,22 +1857,7 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
 
     }
 
-    private void Altitude_Maintain(){
-        //이함수는 고도가 다를때 클라임브 함수를 계속부른다. 이게 문제가없는지좀보고 컨트롤 하면서 움직일때 문제가 없는지 확인해야할듯.
 
-        Altitude droneAltitude = this.drone.getAttribute(AttributeType.ALTITUDE);
-        double dAltitude =  droneAltitude.getAltitude();
-
-        if( !(dAltitude > 4 && dAltitude < 6) ){
-            ControlApi.getApi(this.drone).enableManualControl(true, new ControlApi.ManualControlStateListener() {
-                @Override
-                public void onManualControlToggled(boolean isEnabled) {
-                }
-            });
-
-            ControlApi.getApi(this.drone).climbTo(5.0);
-        }
-    }
 
 }
 

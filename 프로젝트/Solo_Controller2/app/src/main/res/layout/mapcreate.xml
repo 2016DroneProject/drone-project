@@ -4,29 +4,33 @@
     android:background="@android:color/holo_purple">
 
     <Button
-        android:background="@drawable/lefttop"
+        android:background="@drawable/bomb_icon"
         android:layout_width="80dp"
-        android:layout_height="60dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="28dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
         android:id="@+id/leftTopBtn"
-        android:elevation="1dp" />
+        android:elevation="1dp"
+        android:layout_marginLeft="103dp"
+        android:layout_marginStart="103dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:background="@drawable/righttop"
+        android:background="@drawable/highlighter_icon"
         android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:layout_alignTop="@+id/leftTopBtn"
         android:layout_toRightOf="@+id/leftTopBtn"
         android:layout_toEndOf="@+id/leftTopBtn"
-        android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
         android:id="@+id/rightTopBtn" />
 
     <Button
-        android:background="@drawable/rightbottom"
+        android:background="@drawable/paint_icon"
         android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:layout_alignBottom="@+id/leftBottomBtn"
         android:layout_alignLeft="@+id/rightTopBtn"
         android:layout_alignStart="@+id/rightTopBtn"
@@ -34,9 +38,9 @@
 
 
     <Button
-        android:background="@drawable/leftbottom"
+        android:background="@drawable/scope_icon"
         android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:layout_marginTop="27dp"
         android:id="@+id/leftBottomBtn"
         android:layout_below="@+id/leftTopBtn"

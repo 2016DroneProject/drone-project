@@ -22,18 +22,20 @@ public class StageNum : MonoBehaviour {
     GameObject Vaccum;
     GameObject Gun;
 
-    private static StageNum s_Instance = null;
 
 
-    public float altitude = 0;
-    public int item = 0;
-    public bool Attack = false;
+
 
     GameObject height;
     Text h_txt;
+    GameObject UDP;
+    Order udporder;
 
     // Use this for initialization
     void Start () {
+
+        UDP = GameObject.Find("UDP");
+        udporder = UDP.GetComponent<Order>();
 
         score_text = GameObject.Find("Score");
         scoretxt = score_text.GetComponent<Text>();
@@ -41,20 +43,20 @@ public class StageNum : MonoBehaviour {
         Gun = GameObject.Find("RightGun");
         height = GameObject.Find("Height");
         h_txt = height.GetComponent<Text>();
-      
 
-		
-	}
+        score = udporder.Sea_Score;
+
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
         scoretxt.text = "Score: " + score;
-        h_txt.text = "HEIGHT"+" \n" + altitude + " M";
+        h_txt.text = "HEIGHT"+" \n" + udporder.rcvPack.altitude + " M";
 
-        GameObject UDP = GameObject.Find("UDP");
-        Order udporder = UDP.GetComponent<Order>();
 
-        udporder.Score = score;
+        udporder.Sea_Score = score;
 
         if (num == 1)
         {
@@ -69,14 +71,15 @@ public class StageNum : MonoBehaviour {
             Vaccum.SetActive(false);
         }
 
-        if(Attack == true)
+        if(udporder.rcvPack.bAttack == true)
         {
             Gun.SendMessage("Shotboolean");
+            udporder.rcvPack.bAttack = false;
         }
 
     }
 
-    void stageone()
+    void stageone()    
     {
         num = 1;
     }

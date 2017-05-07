@@ -8,10 +8,13 @@ public class Order : MonoBehaviour
 
     private static Order s_Instance = null;
 
-    public int Score;
+    public int Sea_Score;
+    public int Land_Score;
 
     void Start()
     {
+        Sea_Score = 0;
+        Land_Score = 0;
         DontDestroyOnLoad(this);
         //st = stage.GetComponent<StageNum>();
 
@@ -66,21 +69,7 @@ public class Order : MonoBehaviour
         json = Encoding.UTF8.GetString(ord);
         rcvPack = JsonUtility.FromJson<ReceivePacket>(json);
 
-        GameObject game = GameObject.Find("StageNum");
-        StageNum st = game.GetComponent<StageNum>();
-
-        if (rcvPack.bAttack == true)
-        {
-
-            st.Attack= true;
-            Debug.Log("발사");
-            rcvPack.bAttack = false;
-        }
-
-        st.altitude = rcvPack.altitude;
-        st.item = rcvPack.KindItem;
-
-        Debug.Log("아이템: " + rcvPack.KindItem);
+        
     }
 
     public void SendPack(SENDID id, bool value, bool bMarkerRender)

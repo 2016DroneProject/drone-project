@@ -34,11 +34,11 @@ public class GunShootingPearl : MonoBehaviour {
         if ((stage_num.num == 3 || stage_num.num == 4) && ((Input.GetMouseButtonDown(0)) ||( shot == true)))
         {
 
-            //if(stage_num.pearl_num > 0)
-            //{
+            if(stage_num.pearl_num > 0)
+            {
                 ShootPearl();
                 shot = false;
-            //}     
+            }     
         }
 
         else if (stage_num.num == 2 && ((Input.GetMouseButtonDown(0) || shot == true )))

@@ -144,7 +144,8 @@ public class OpenBox : MonoBehaviour {
     {
         gameObject.tag = "Box";
         Destroy(obj.gameObject,0.5f);
-        Destroy(shine.gameObject);
+        if(shine.GetComponent<ParticleSystem>()!= null)
+            Destroy(shine.GetComponent<ParticleSystem>());
     }
 
     void desbool()
