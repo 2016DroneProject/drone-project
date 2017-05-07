@@ -39,7 +39,7 @@ public class BuildManager : MonoBehaviour {
         {
             case State.armorBuild:
                 {
-                    if (buildTrigger.isVisibleBuilding)
+                    if (buildTrigger.isVisibleBuilding_armor)
                     {
                         count = 0;
                         bp.buildArmorBuilding();
@@ -49,7 +49,7 @@ public class BuildManager : MonoBehaviour {
                 }
             case State.hpBuild:
                 {
-                    if (buildTrigger.isVisibleBuilding)
+                    if (buildTrigger.isVisibleBuilding_hp)
                     {
                         count = 0;
                         bp.buildHpBuilding();
@@ -59,7 +59,7 @@ public class BuildManager : MonoBehaviour {
                 }
             case State.attkBuild:
                 {
-                    if (buildTrigger.isVisibleBuilding)
+                    if (buildTrigger.isVisibleBuilding_attk)
                     {
                         count = 0;
                         bp.buildAttkBuilding();

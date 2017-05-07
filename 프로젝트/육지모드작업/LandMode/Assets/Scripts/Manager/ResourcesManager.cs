@@ -8,6 +8,7 @@ public class ResourcesManager : MonoBehaviour {
 
     public Slider resourceSlider;
     public Text[] resourceText;
+    public GameObject[] resourceImage;
 
     public int armorCount;
     public int hpCount;
@@ -42,6 +43,9 @@ public class ResourcesManager : MonoBehaviour {
         resourceText[0].gameObject.SetActive(false);
         resourceText[1].gameObject.SetActive(false);
         resourceText[2].gameObject.SetActive(false);
+        resourceImage[0].gameObject.SetActive(false);
+        resourceImage[1].gameObject.SetActive(false);
+        resourceImage[2].gameObject.SetActive(false);
     }
 
     void Update()
@@ -61,6 +65,7 @@ public class ResourcesManager : MonoBehaviour {
                 {
                     resourceSlider.gameObject.SetActive(true);
                     resourceText[0].gameObject.SetActive(true);
+                    resourceImage[0].gameObject.SetActive(true);
                     resourceSlider.maxValue = 20;
 
                     armorCount++;
@@ -88,6 +93,7 @@ public class ResourcesManager : MonoBehaviour {
                 {
                     resourceSlider.gameObject.SetActive(true);
                     resourceText[1].gameObject.SetActive(true);
+                    resourceImage[1].gameObject.SetActive(true);
                     resourceSlider.maxValue = 30;
 
                     hpCount++;
@@ -113,6 +119,7 @@ public class ResourcesManager : MonoBehaviour {
                 {
                     resourceSlider.gameObject.SetActive(true);
                     resourceText[2].gameObject.SetActive(true);
+                    resourceImage[2].gameObject.SetActive(true);
                     resourceSlider.maxValue = 60;
 
                     attkCount++;
@@ -159,6 +166,9 @@ public class ResourcesManager : MonoBehaviour {
             resourceText[0].gameObject.SetActive(false);
             resourceText[1].gameObject.SetActive(false);
             resourceText[2].gameObject.SetActive(false);
+            resourceImage[0].gameObject.SetActive(false);
+            resourceImage[1].gameObject.SetActive(false);
+            resourceImage[2].gameObject.SetActive(false);
         }
     }
 

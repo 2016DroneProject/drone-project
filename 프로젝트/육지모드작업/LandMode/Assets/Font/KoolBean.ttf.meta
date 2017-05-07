@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: cd486a18d658c4c4889d993253f53540
+timeCreated: 1493721067
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Kool Beans
+  fontNames:
+  - Kool Beans
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
