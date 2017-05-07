@@ -7,29 +7,53 @@ public class OpenBox : MonoBehaviour {
 
     int num;
 
-    bool start = false;
+    bool open_start = false;
+    bool close_start = false;
 
     bool is_opening = false;
-	// Use this for initialization
-	void Start () {
-		
-	}
+    bool is_closing = false; 
+
+    public bool open = false;
+    public bool close = false;
+
+    float timer = 0;
+
+    bool start_timer = false;
+
+    public AudioClip open_box;
+    public AudioClip empty;
+    public AudioClip success;
+
+    AudioSource ad;
+
+    public GameObject obj;
+    bool desobj = false;
+
+    public GameObject shine;
+    // Use this for initialization
+    void Start () {
+        ad = GetComponent<AudioSource>();
+
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.O))
+        if (open == true && close == false)
         {
             if(is_opening == false)
-                start = true;
+                open_start = true;
         }
 		
-        if(start == true)
+        if(open_start == true)
         {
-            Debug.Log(transform.rotation.x);
-            if (transform.rotation.x > -0.8)
+            //Debug.Log(transform.rotation.x);
+           
+            if (transform.rotation.x <0.8f)
             {
-                this.transform.Rotate(-30 * Time.deltaTime, 0, 0);
+                this.transform.Rotate(-50 * Time.deltaTime, 0, 0);
                 is_opening = true;
 
                 
@@ -37,24 +61,105 @@ public class OpenBox : MonoBehaviour {
 
             else
             {
-                start = false;
+                ad.Stop();
+
+                if (this.tag == "Box")
+                    ad.clip = empty;
+                else
+                    ad.clip = success;
+
+                ad.Play();
+                open_start = false;
                 is_opening = false;
+                open = false;
+                start_timer = true;
+                
             }
 
         }
-	}
 
-    IEnumerator Open()
-    {
-        Debug.Log("들어옴");
+        if (start_timer == true)
+        {
+            timer += Time.deltaTime;
+            if (timer > 3.0f)
+            {
+                //Debug.Log(timer);
 
-        if (transform.rotation.x > -90)
-            this.transform.Rotate(-1 * Time.deltaTime, 0, 0);
-        else
-            StopCoroutine("Open");
+                if (desobj == true)
+                    destroyobj();
 
-        num++;
+                ad.Stop();
+                close = true;
+                timer = 0.0f;
+                start_timer = false;
+
+            }
+        }
+
+
+        if (close == true && open == false)
+        {
+            //Debug.Log("안냥");
+
+            if (is_closing == false)
+                close_start = true;
+        }
+
+        if (close_start == true)
+        {
+            //Debug.Log(transform.rotation.x);
+            if (transform.rotation.x > 0)
+            {
+                this.transform.Rotate(50 * Time.deltaTime, 0, 0);
+                is_closing = true;
+
+
+            }
+
+            else
+            {
+                
+                close_start = false;
+                is_closing = false;
+                close = false;
+             
+
+            }
+
+        }
+
+
+
+    }
+
   
-        yield return null;
+    void bool_change()
+    {
+        ad.clip = open_box;
+        ad.Play();
+        open = true;
+    }
+
+    void destroyobj()
+    {
+        gameObject.tag = "Box";
+        Destroy(obj.gameObject,0.5f);
+        Destroy(shine.gameObject);
+    }
+
+    void desbool()
+    {
+        desobj = true;
+        
+    }
+
+    void activeshine()
+    {
+        shine.SetActive(true);
+    }
+
+    void disactiveshine()
+    {
+        shine.SetActive(false);
     }
 }

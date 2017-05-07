@@ -30,18 +30,18 @@ public class GunShootingPearl : MonoBehaviour {
     void Update()
     {
 
-        // 컨트롤러 연동하면 마우스 입력 버튼 bool 변수(컨트롤러에서 받아오는)로 변경 Time.time > nextShootRate
-        if ((stage_num.num == 3 || stage_num.num == 4) && ((Input.GetMouseButtonDown(0) && Time.time > nextShootRate) ||( shot == true)))
+        // 컨트롤러 연동하면 마우스 입력 버튼 bool 변수(컨트롤러에서 받아오는)로 변경 Time.time > nextShootRate 
+        if ((stage_num.num == 3 || stage_num.num == 4) && ((Input.GetMouseButtonDown(0)) ||( shot == true)))
         {
 
-            if(stage_num.pearl_num > 0)
-            {
+            //if(stage_num.pearl_num > 0)
+            //{
                 ShootPearl();
                 shot = false;
-            }     
+            //}     
         }
 
-        else if (stage_num.num == 2 && ((Input.GetMouseButtonDown(0) && Time.time > nextShootRate) || (shot == true )))
+        else if (stage_num.num == 2 && ((Input.GetMouseButtonDown(0) || shot == true )))
         {
             if (stage_num.shell_num >= 3)
             {
