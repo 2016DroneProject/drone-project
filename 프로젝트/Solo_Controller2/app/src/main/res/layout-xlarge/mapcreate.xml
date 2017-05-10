@@ -4,7 +4,7 @@
     android:background="@android:color/holo_purple">
 
     <Button
-        android:background="@drawable/bomb"
+        android:background="@drawable/bomb_icon"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="32dp"
@@ -17,7 +17,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:background="@drawable/highlighter"
+        android:background="@drawable/highlighter_icon"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignTop="@+id/leftTopBtn"
@@ -28,7 +28,7 @@
         android:id="@+id/rightTopBtn" />
 
     <Button
-        android:background="@drawable/paint"
+        android:background="@drawable/paint_icon"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignBottom="@+id/leftBottomBtn"
@@ -38,7 +38,7 @@
 
 
     <Button
-        android:background="@drawable/scope"
+        android:background="@drawable/scope_icon"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="27dp"

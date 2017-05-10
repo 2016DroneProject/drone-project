@@ -61,12 +61,12 @@ public class MapCreatePop extends Activity{
 
                     MainActivity.vibrator.vibrate(100);
 
-                    leftTopButton.setBackgroundResource(R.drawable.bomb_sel);
+                    leftTopButton.setBackgroundResource(R.drawable.bombsel);
                 } else if (action == MotionEvent.ACTION_UP) {
                     if(MainActivity.leftTop_bool)
-                        leftTopButton.setBackgroundResource(R.drawable.bomb_sel);
+                        leftTopButton.setBackgroundResource(R.drawable.bombsel);
                     else
-                        leftTopButton.setBackgroundResource(R.drawable.bomb_icon);
+                        leftTopButton.setBackgroundResource(R.drawable.bomb);
                 }
                 return false;
             }
@@ -94,12 +94,12 @@ public class MapCreatePop extends Activity{
 
 
 
-                    rightTopButton.setBackgroundResource(R.drawable.highlighter_sel);
+                    rightTopButton.setBackgroundResource(R.drawable.highlightersel);
                 } else if (action == MotionEvent.ACTION_UP) {
                     if(MainActivity.rightTop_bool)
-                        rightTopButton.setBackgroundResource(R.drawable.highlighter_sel);
+                        rightTopButton.setBackgroundResource(R.drawable.highlightersel);
                     else
-                        rightTopButton.setBackgroundResource(R.drawable.highlighter_icon);
+                        rightTopButton.setBackgroundResource(R.drawable.highlighter);
                 }
                 return false;
             }
@@ -123,12 +123,12 @@ public class MapCreatePop extends Activity{
 
                     MainActivity.vibrator.vibrate(100);
 
-                    leftBottomButton.setBackgroundResource(R.drawable.scope_sel);
+                    leftBottomButton.setBackgroundResource(R.drawable.scopesel);
                 } else if (action == MotionEvent.ACTION_UP) {
                     if(MainActivity.leftBottom_bool)
-                        leftBottomButton.setBackgroundResource(R.drawable.scope_sel);
+                        leftBottomButton.setBackgroundResource(R.drawable.scopesel);
                     else
-                        leftBottomButton.setBackgroundResource(R.drawable.scope_icon);
+                        leftBottomButton.setBackgroundResource(R.drawable.scope);
                 }
                 return false;
             }
@@ -154,12 +154,12 @@ public class MapCreatePop extends Activity{
 
                     MainActivity.vibrator.vibrate(100);
 
-                    rightBottomButton.setBackgroundResource(R.drawable.paint_sel);
+                    rightBottomButton.setBackgroundResource(R.drawable.paintsel);
                 } else if (action == MotionEvent.ACTION_UP) {
                     if(MainActivity.rightBottom_bool)
-                        rightBottomButton.setBackgroundResource(R.drawable.paint_sel);
+                        rightBottomButton.setBackgroundResource(R.drawable.paintsel);
                     else
-                        rightBottomButton.setBackgroundResource(R.drawable.paint_icon);
+                        rightBottomButton.setBackgroundResource(R.drawable.paint);
                 }
                 return false;
             }

@@ -261,9 +261,9 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
                 if (action == MotionEvent.ACTION_DOWN) {
                     vibrator.vibrate(100);
                     startActivity(new Intent(MainActivity.this,MapCreatePop.class));
-                    mapCreate_btn.setBackgroundResource(R.drawable.mapiconsel);
+                    mapCreate_btn.setBackgroundResource(R.drawable.itemsel);
                 } else if (action == MotionEvent.ACTION_UP) {
-                    mapCreate_btn.setBackgroundResource(R.drawable.mapicon);
+                    mapCreate_btn.setBackgroundResource(R.drawable.item);
                 }
                 return false;
             }
@@ -281,9 +281,9 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
                     UDPPacketAttackSend();
                     //임시확인용
                     FirstYawInit();
-                    attackBtn.setBackgroundResource(R.drawable.attack2sel);
+                    attackBtn.setBackgroundResource(R.drawable.shotsel);
                 } else if (action == MotionEvent.ACTION_UP) {
-                    attackBtn.setBackgroundResource(R.drawable.attack2);
+                    attackBtn.setBackgroundResource(R.drawable.shot);
                 }
                 return false;
             }
@@ -298,9 +298,9 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
                 if (action == MotionEvent.ACTION_DOWN) {
                     vibrator.vibrate(100);
                     UDPPacketWeaponChangeSend();
-                    speedUpBtn.setBackgroundResource(R.drawable.weaponsel);
+                    speedUpBtn.setBackgroundResource(R.drawable.itemusesel);
                 } else if (action == MotionEvent.ACTION_UP) {
-                    speedUpBtn.setBackgroundResource(R.drawable.weapon);
+                    speedUpBtn.setBackgroundResource(R.drawable.itemuse);
                 }
                 return false;
             }

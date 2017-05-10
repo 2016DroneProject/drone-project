@@ -67,7 +67,7 @@
             android:id="@+id/BatteryText"
             android:layout_gravity="left|top"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="60dp"
             android:textColor="#5eff00"
             android:textSize="55dp"
             android:textAlignment="center" />
@@ -108,20 +108,20 @@
             android:layout_marginTop="40dp" />
 
         <Button
-            android:background="@drawable/mapicon"
-            android:layout_width="65dp"
-            android:layout_height="49dp"
+            android:background="@drawable/item"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
             android:id="@+id/mapCreateBtn"
-            android:layout_marginLeft="390dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginLeft="400dp"
+            android:layout_marginTop="30dp"/>
 
         <Button
-            android:layout_width="100dp"
-            android:layout_height="37dp"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
             android:id="@+id/attackBtn"
-            android:background="@drawable/attack2"
-            android:layout_marginTop="80dp"
-            android:layout_marginLeft="150dp"/>
+            android:background="@drawable/shot"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="145dp"/>
 
         <Button
             android:text="CONNECT"
@@ -167,11 +167,11 @@
 
         <Button
             android:id="@+id/WeaponBtn"
-            android:layout_width="115dp"
-            android:layout_height="37dp"
-            android:layout_marginLeft="270dp"
-            android:layout_marginTop="80dp"
-            android:background="@drawable/weapon" />
+            android:layout_width="120dp"
+            android:layout_height="62dp"
+            android:layout_marginLeft="265dp"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/itemuse" />
 
         <Button
             android:id="@+id/LeftRotBtn"
