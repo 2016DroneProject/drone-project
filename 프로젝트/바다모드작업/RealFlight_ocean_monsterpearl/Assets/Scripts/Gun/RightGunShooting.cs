@@ -17,7 +17,7 @@ public class RightGunShooting : MonoBehaviour {
     private LineRenderer LaserLine;
     private WaitForSeconds m_LaserDuration = new WaitForSeconds(0.1f);
     private bool m_bLaserLineEnabled;
-    private bool isGunshot;
+
     private float m_fNextFire;
 
     private void Awake()
@@ -39,7 +39,7 @@ public class RightGunShooting : MonoBehaviour {
     {
         //isGunshot = mtm.rcvPack.GunShot;
 
-        if (isGunshot && Time.time > m_fNextFire)
+        if (Time.time > m_fNextFire)
         {
             Fire();
             //mtm.rcvPack.GunShot = false;

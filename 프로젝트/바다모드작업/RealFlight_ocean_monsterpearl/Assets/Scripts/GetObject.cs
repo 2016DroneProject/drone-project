@@ -7,9 +7,8 @@ public class GetObject : MonoBehaviour {
     GameObject player;
 
     public float dist;
-    float min_dist;
 
-    bool near;
+
 
     GameObject target;
     SpawnShell make;
@@ -25,12 +24,13 @@ public class GetObject : MonoBehaviour {
     LODGroup lod;
 
     GameObject shellnum;
+
+    int num = 0;
+    public AudioClip audioc;
+
     void Start()
     {
 
-        min_dist = 2f;
-
-        near = false;
         shellnum = GameObject.Find("StageNum");
         player = GameObject.Find("CameraTarget");
         target = GameObject.Find("ImageTarget1");
@@ -52,8 +52,15 @@ public class GetObject : MonoBehaviour {
         {
             if (Vector3.Distance(transform.position, player.transform.position) < dist)
             {
-                transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, Time.deltaTime * 120f);
-
+                if (num < 1)
+                {
+                    ac.Play();
+                    num++;
+                }
+                transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, Time.deltaTime * 100f);
+                
+                if(transform.localScale.x > 0.3f && Vector3.Distance(transform.position, player.transform.position) < 30)
+                    transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
             }
         }
 
@@ -67,10 +74,11 @@ public class GetObject : MonoBehaviour {
             lod.enabled = false;
             if (check == 0)
             {
-                
-                ac.Play();
 
-                foreach(Transform child in transform)
+                GetComponent<AudioSource>().clip = audioc;
+                GetComponent<AudioSource>().Play();
+
+                foreach (Transform child in transform)
                 {
                     if(child.tag == "Shell")
                         child.GetComponent<MeshRenderer>().enabled = false;

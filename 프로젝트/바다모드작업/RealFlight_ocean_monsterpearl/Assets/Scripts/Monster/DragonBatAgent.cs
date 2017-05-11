@@ -21,7 +21,7 @@ public class DragonBatAgent : MonoBehaviour {
     private MonsterHP monsterHP;
     //private DragoBatAttack dragonbatAttack;
     private Vector3 target;
-    private int WayPointInd = 0;
+
 
     void Awake()
     {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Mode2Manager : MonoBehaviour {
 
 
-    int item_num = 0;
+
 
     public Material[] box_material;
 
@@ -23,7 +23,7 @@ public class Mode2Manager : MonoBehaviour {
     Text high_txt;
     int bomb = 15;
     Text bomb_txt;
-    int paint = 6;
+    public int paint = 6;
     Text paint_txt;
 
     GameObject bill;
@@ -44,19 +44,23 @@ public class Mode2Manager : MonoBehaviour {
     Image high_img;
     Image scope_img;
 
-    Transform shotPos;
+    public Transform shotPos;
 
     public GameObject bomb_obj;
+    public GameObject paint_obj;
+
+    public AudioClip scope_as;
+    public AudioClip high_as;
+
 
     //Find Shine 오브젝트 찾아서 setactive 
 
     // Use this for initialization
     void Start () {
-
         UDP = GameObject.Find("UDP");
         udporder = UDP.GetComponent<Order>();
 
-        shotPos = GameObject.Find("Shotpos").GetComponent<Transform>();
+       
 
         bomb_txt = GameObject.Find("Bomb_Num").GetComponent<Text>();
         high_txt = GameObject.Find("High_Num").GetComponent<Text>();
@@ -83,7 +87,9 @@ public class Mode2Manager : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.C) || udporder.rcvPack.KindItem == 3)
         {
-            Debug.Log("머테리얼");
+            GetComponent<AudioSource>().clip = scope_as;
+            GetComponent<AudioSource>().Play();
+           // Debug.Log("머테리얼");
             udporder.rcvPack.KindItem = 0;
             if(scope > 0 )
                 Useflu();
@@ -92,7 +98,9 @@ public class Mode2Manager : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.G) || udporder.rcvPack.KindItem == 2)
         {
-            Debug.Log("하이라이트");
+            GetComponent<AudioSource>().clip = high_as;
+            GetComponent<AudioSource>().Play();
+           // Debug.Log("하이라이트");
             udporder.rcvPack.KindItem = 0;
             if (high > 0)
                 UseHigh();
@@ -101,12 +109,22 @@ public class Mode2Manager : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.B) || udporder.rcvPack.KindItem == 1)
         {
-            Debug.Log("폭탄");
+           // Debug.Log("폭탄");
             udporder.rcvPack.KindItem = 0;
             if (bomb > 0)
                 UseBomb();
 
         }
+
+        if (Input.GetKeyUp(KeyCode.P) || udporder.rcvPack.KindItem == 4)
+        {
+           // Debug.Log("페인트");
+            udporder.rcvPack.KindItem = 0;
+            if (paint > 0)
+                UsePaint();
+
+        }
+
 
         if (timer1 < max_time1)
         {
@@ -114,8 +132,12 @@ public class Mode2Manager : MonoBehaviour {
             timer1 += Time.deltaTime;
             m_fAlpha = 0.4f;
 
-            for(int i = 0; i< box_material.Length;i++)
-                box_material[i].color = new Color(box_material[i].color.r, box_material[i].color.b, box_material[i].color.g, m_fAlpha);
+            for (int i = 0; i < box_material.Length; i++)
+            {
+                Color maintain = box_material[i].color;
+
+                box_material[i].color = new Color(maintain.r, maintain.g, maintain.b, m_fAlpha);
+            }
 
 
             scope_img.fillAmount = (max_time1 - timer1) / max_time1;
@@ -126,7 +148,11 @@ public class Mode2Manager : MonoBehaviour {
                 scope_img.fillAmount = 1;
                 m_fAlpha = 1f;
                 for (int i = 0; i < box_material.Length; i++)
-                    box_material[i].color = new Color(box_material[i].color.r, box_material[i].color.b, box_material[i].color.g, m_fAlpha);
+                {
+                    Color maintain = box_material[i].color;
+
+                    box_material[i].color = new Color(maintain.r, maintain.g, maintain.b, m_fAlpha);
+                }
             }
         }
 
@@ -161,14 +187,14 @@ public class Mode2Manager : MonoBehaviour {
     void Useflu()
     {
         scope--;
-        max_time1 = 10f;
+        max_time1 = 30f;
         timer1 = 0;
     }
 
     void UseHigh()
     {
         high--;
-        max_time2 = 10f;
+        max_time2 = 60f;
         timer2 = 0;
 
         for(int i = 0; i < 32; i++)
@@ -199,5 +225,10 @@ public class Mode2Manager : MonoBehaviour {
         Instantiate(bomb_obj, shotPos.position, bomb_obj.transform.rotation);
     }
 
+    void UsePaint()
+    {
+        paint--;
+        Instantiate(paint_obj, shotPos.position, paint_obj.transform.rotation);
+    }
 
 }

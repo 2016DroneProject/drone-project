@@ -42,7 +42,7 @@ public class KeyMovement : MonoBehaviour {
                     mis.now_mission1 = null;
                     mis.now_mission1 = "Clear";
                     other.SendMessage("desbool");
-
+                    other.SendMessage("playsound",true);
                     if (mis.now_mission2 == "Clear")
                         mis.nextstage();
                 }
@@ -52,9 +52,12 @@ public class KeyMovement : MonoBehaviour {
                     mis.now_mission2 = null;
                     mis.now_mission2 = "Clear";
                     other.SendMessage("desbool");
+                    other.SendMessage("playsound", true);
                     if (mis.now_mission1 == "Clear")
                         mis.nextstage();
                 }
+                else
+                    other.SendMessage("playsound", false);
 
                 num++;
                 Destroy(this.gameObject, 2f);

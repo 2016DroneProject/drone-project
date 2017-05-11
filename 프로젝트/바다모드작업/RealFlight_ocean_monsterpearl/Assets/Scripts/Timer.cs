@@ -10,8 +10,8 @@ public class Timer : MonoBehaviour {
     int minute;
     int second;
 
-    GameObject stage;
-    StageNum score;
+
+
 
     public GameObject end;
 
@@ -21,9 +21,7 @@ public class Timer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         RemainTime = GetComponent<Text>();
-        
-        stage = GameObject.Find("StageNum");
-        score = stage.GetComponent<StageNum>();
+      
         barimg = bar.GetComponent<Image>();
         saveTime = TimeCount;
 		
@@ -46,7 +44,7 @@ public class Timer : MonoBehaviour {
             TimeCount = 0;
             end.SetActive(true);
 
-            Destroy(this.gameObject, 0.1f);
+           Destroy(this.gameObject, 0.1f);
 
         }
 		

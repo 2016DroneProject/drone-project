@@ -26,7 +26,7 @@ public class Mission : MonoBehaviour {
 
     public int stage_num;
 
-    float stage_timer;
+    float stage_timer = 0;
 
     string[] str_mission = new string[6];
 
@@ -35,8 +35,18 @@ public class Mission : MonoBehaviour {
     public GameObject clear1;
     public GameObject clear2;
 
+    Stage2 st;
+
+    Text mission_text;
+
+    public GameObject end;
+    public GameObject timer;
+
     // Use this for initialization    
     void Start () {
+
+        mission_text = GameObject.Find("Mission").GetComponent<Text>();
+        st = GameObject.Find("StageNum").GetComponent<Stage2>();
 
         AssignMission();
         inttostr();
@@ -57,6 +67,10 @@ public class Mission : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        stage_timer += Time.deltaTime;
+
+        mission_text.text = "Mission " + stage_num;
 
         if (now_mission1 == "Clear")
             clear1.SetActive(true);
@@ -92,6 +106,28 @@ public class Mission : MonoBehaviour {
 
     public void nextstage()
     {
+        if (stage_timer < 40)
+        {
+            st.score += 750;
+        }
+        else if (stage_timer >= 40 && stage_timer < 80)
+        {
+            st.score += 450;
+        }
+
+        else if (stage_timer >= 80 && stage_timer < 100)
+        {
+            st.score += 200;
+        }
+
+        else
+        {
+            st.score += 50;
+        }
+
+        stage_timer = 0;
+
+        
         stage_num++;
 
         clear1.SetActive(false);
@@ -111,11 +147,21 @@ public class Mission : MonoBehaviour {
         {
             mission1_img.sprite = spr[mission_data[4]];
             mission2_img.sprite = spr[mission_data[5]];
-            now_mission1= str_mission[4];
+            now_mission1 = str_mission[4];
             now_mission2 = str_mission[5];
         }
-    }
 
+        if (stage_num == 4)
+        {
+            
+            end.SetActive(true);
+            stage_num = 3;
+            clear1.SetActive(true);
+            clear2.SetActive(true);
+            Destroy(timer.gameObject,1f);
+
+        }
+    }
     void inttostr()
     {
         for (int i = 0; i < mission_data.Length; i++)

@@ -9,32 +9,29 @@ public class EndUI : MonoBehaviour {
     Text tex;
 
     GameObject stage;
-    StageNum score;
+    Order score;
 
     Timer timer;
-    float count;
+
+
     // Use this for initialization
     void Start () {
         tex = GetComponent<Text>();
-        stage = GameObject.Find("StageNum");
-        score = stage.GetComponent<StageNum>();
+        stage = GameObject.Find("UDP");
+        score = stage.GetComponent<Order>();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (count > 5f)
-        {
-            //Time.timeScale = 1f;
-            SceneManager.LoadScene(1);
-        }
-
-
-        tex.text = "겜끝\n" + "내점수: " + score.score;
        
 
-        count += Time.deltaTime;
+
+        tex.text = "Sea Mode1 Finished\n" + "My Score: " + score.Sea_Score;
+       
+
+      
 
     }
 }

@@ -146,9 +146,12 @@
     <None Include="Assets\AQUAS\Shaders\Water\Mobile\FoamyOneColored.shader" />
     <None Include="Assets\AQUAS\Shaders\Water\Mobile\OneColored.shader" />
     <None Include="Assets\AQUAS\Shaders\Water\Mobile\OneColoredOpaque.shader" />
-    <None Include="Assets\DragonBat\bat animations.txt" />
+    <None Include="Assets\Clam_Vaccum\IndustrialMaterialPack\Shaders\S_PBR_01.shader" />
+    <None Include="Assets\Clam_Vaccum\IndustrialMaterialPack\Shaders\S_PBR_01_NONM.shader" />
+    <None Include="Assets\Clam_Vaccum\IndustrialMaterialPack\Shaders\ShaderReadme.txt" />
     <None Include="Assets\Exploding_Bomb\LeftMouseToLightFuse_RightMouseToReset.txt" />
     <None Include="Assets\Models\Key\readME keys.txt" />
+    <None Include="Assets\Openning\fogplane.shader" />
     <None Include="Assets\Particle Ribbon\readme_Simple_Particle_Ribbon.txt" />
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Plugins\iOS\Vuforia.UnityExtensions.iOS.XML" />
@@ -226,10 +229,6 @@
     <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
     <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
     <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
-    <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
-    <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
-    <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
-    <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\StreamingAssets\QCAR\project2017.xml" />
     <None Include="Assets\Treasurechest\Read me\readme.txt" />
     <None Include="Assets\UI_resources\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\MotionBlur.shader" />
@@ -247,6 +246,7 @@
     <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
     <None Include="Assets\license_3rdpartynotice.txt" />
     <None Include="Assets\link.xml" />
+    <None Include="Assets\paint_FBX\Basic Metal Texture Pack\readme.txt" />
     <None Include="Assets\readme_SDK.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
