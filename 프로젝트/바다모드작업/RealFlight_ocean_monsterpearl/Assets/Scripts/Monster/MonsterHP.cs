@@ -18,7 +18,7 @@ public class MonsterHP : MonoBehaviour {
     public bool IsDead;
 
     //private DragonBatAgent dragonbatAgent;
-    private SkinnedMeshRenderer renderer;
+    private SkinnedMeshRenderer render;
     private Animator anim;
     private CapsuleCollider capsuleCollider;
     private Material material;
@@ -47,7 +47,7 @@ public class MonsterHP : MonoBehaviour {
         //MN2 = MonNum2.GetComponent<monster2_num>();
 
 
-        renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        render = GetComponentInChildren<SkinnedMeshRenderer>();
         anim = GetComponent<Animator>();
         capsuleCollider = GetComponentInChildren<CapsuleCollider>();
 
@@ -65,8 +65,13 @@ public class MonsterHP : MonoBehaviour {
     {
         if (IsVanish)
         {
-            m_fAlpha -= 0.005f;
-            renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.b, renderer.material.color.g, m_fAlpha);
+            m_fAlpha -= 0.02f;
+
+            Color maintain = render.material.color;
+
+            render.material.color = new Color(maintain.r, maintain.g, maintain.b, m_fAlpha);
+
+            
         }
 
     }
@@ -75,7 +80,8 @@ public class MonsterHP : MonoBehaviour {
     {
         Debug.Log("Enemy Damaged");
 
-        Instantiate(hitParticle, this.transform.position, hitParticle.transform.rotation);
+  
+        Instantiate(hitParticle, new Vector3(this.transform.position.x, this.transform.position.y + 15, this.transform.position.z), hitParticle.transform.rotation);
 
         if (this.gameObject.tag == "Bat")
         {

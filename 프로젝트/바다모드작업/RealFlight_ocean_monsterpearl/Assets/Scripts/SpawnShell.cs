@@ -23,11 +23,11 @@ public class SpawnShell : MonoBehaviour {
 
     public void makeShell()
     {
-        Debug.Log("조개다시");
+        //Debug.Log("조개다시");
         GameObject making;
 
         float x = Random.Range(-150.0f, 150.0f);
-        float y = Random.Range(90f, 450.0f);
+        float y = Random.Range(135f, 450.0f);
         float z = Random.Range(-150.0f, 150.0f);
 
         making = Instantiate(shell, new Vector3(x, y, z), new Quaternion(0, 0, 0, 0));

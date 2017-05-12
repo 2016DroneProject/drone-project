@@ -64,9 +64,9 @@ public class InstanceBox : MonoBehaviour {
     {
         GameObject making;
 
-        float x = Random.Range(-60.0f, 60.0f);
-        float y = Random.Range(150f, 250.0f);
-        float z = Random.Range(-60.0f, 60.0f);
+        float x = Random.Range(-130.0f, 130.0f);
+        float y = Random.Range(50f, 200.0f);
+        float z = Random.Range(-110.0f, 110.0f);
        // int w = Random.Range(-180, 180);
 
         making = Instantiate(boxes[turn], new Vector3(x, y, z), new Quaternion(0, 0, 0, 0));
@@ -77,7 +77,7 @@ public class InstanceBox : MonoBehaviour {
 
     void EmptyBox()
     {
-        for(int i=0;i< 6; i++)
+        for(int i=0;i< 4; i++)
         {
             Instancebox(0, 8);
             Instancebox(1, 8);

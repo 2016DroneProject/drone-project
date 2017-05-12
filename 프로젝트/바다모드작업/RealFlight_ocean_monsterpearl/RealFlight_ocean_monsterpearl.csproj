@@ -119,7 +119,6 @@
     <Compile Include="Assets\Scripts\NumCheck.cs" />
     <Compile Include="Assets\Scripts\ObjectManagement\DestroyObject.cs" />
     <Compile Include="Assets\Scripts\OpenBox.cs" />
-    <Compile Include="Assets\Scripts\Order.cs" />
     <Compile Include="Assets\Scripts\PaintMovement.cs" />
     <Compile Include="Assets\Scripts\PearlNum.cs" />
     <Compile Include="Assets\Scripts\Sea1UIManager.cs" />
@@ -137,13 +136,14 @@
     <Compile Include="Assets\Scripts\StartMotion.cs" />
     <Compile Include="Assets\Scripts\StartPearlMovement.cs" />
     <Compile Include="Assets\Scripts\StartUI.cs" />
-    <Compile Include="Assets\Scripts\Text_Mgr.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
-    <Compile Include="Assets\Scripts\UDPReceive.cs" />
-    <Compile Include="Assets\Scripts\UDPSend.cs" />
     <Compile Include="Assets\Scripts\UIShellRotate.cs" />
     <Compile Include="Assets\Scripts\nextmode.cs" />
     <Compile Include="Assets\Scripts\startTimer.cs" />
+    <Compile Include="Assets\UDP\Order.cs" />
+    <Compile Include="Assets\UDP\Text_Mgr.cs" />
+    <Compile Include="Assets\UDP\UDPReceive.cs" />
+    <Compile Include="Assets\UDP\UDPSend.cs" />
     <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
     <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />
     <Compile Include="Assets\Vuforia\Scripts\CylinderTargetBehaviour.cs" />
@@ -202,10 +202,7 @@
     <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
     <None Include="Assets\Vuforia\Shaders\VertexLitWithZ.shader" />
     <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
-    <None Include="Assets\license_3rdpartynotice.txt" />
-    <None Include="Assets\link.xml" />
     <None Include="Assets\paint_FBX\Basic Metal Texture Pack\readme.txt" />
-    <None Include="Assets\readme_SDK.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StageNum : MonoBehaviour {
 
+    public GameObject Gun;
     public int num;
 
     public int shell_num;
@@ -26,7 +27,6 @@ public class StageNum : MonoBehaviour {
     Text scoretxt;
 
     GameObject Vaccum;
-    GameObject Gun;
 
     GameObject height;
     Text h_txt;
@@ -45,7 +45,7 @@ public class StageNum : MonoBehaviour {
         score_text = GameObject.Find("Score");
         scoretxt = score_text.GetComponent<Text>();
         Vaccum = GameObject.Find("Vaccum");
-        Gun = GameObject.Find("RightGun");
+
         height = GameObject.Find("Height");
         h_txt = height.GetComponent<Text>();
 

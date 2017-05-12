@@ -5,30 +5,30 @@ using UnityEngine;
 public class Sea1UIManager : MonoBehaviour {
 
     public GameObject gun;
-    public GameObject vaccum;
-    public GameObject stagenum;
+    //public GameObject vaccum;
+    //public GameObject stagenum;
     public GameObject timer;
 
     public GameObject[] inform = new GameObject[5];
-    public GameObject number;
+    //public GameObject number;
 
     Order ord;
     int num = 0;
-    public GameObject[] target = new GameObject[4];
+    //public GameObject[] target = new GameObject[4];
 
     // Use this for initialization
     void Start () {
         ord = GameObject.Find("UDP").GetComponent<Order>();
         timer.SetActive(false);
         gun.SetActive(false);
-        vaccum.SetActive(false);
-        stagenum.SetActive(false);
-        number.SetActive(false);
+        //vaccum.SetActive(false);
+        //stagenum.SetActive(false);
+        //number.SetActive(false);
 
-        for(int i = 0; i < target.Length; i++)
-        {
-            target[i].SetActive(false);
-        }
+        //for(int i = 0; i < target.Length; i++)
+        //{
+        //    target[i].SetActive(false);
+        //}
         inform[0].SetActive(true);
     }
 	
@@ -43,15 +43,15 @@ public class Sea1UIManager : MonoBehaviour {
 
             if (num > 4)
             {
-                for (int i = 0; i < target.Length; i++)
-                {
-                    target[i].SetActive(true);
-                }
+                //for (int i = 0; i < target.Length; i++)
+                //{
+                //    target[i].SetActive(true);
+                //}
                 timer.SetActive(true);
                 gun.SetActive(true);
-                vaccum.SetActive(true);
-                stagenum.SetActive(true);
-                number.SetActive(true);
+                //vaccum.SetActive(true);
+                //stagenum.SetActive(true);
+                //number.SetActive(true);
                 Destroy(this.gameObject);
             }
 

@@ -11,7 +11,7 @@ public class SpawnEel : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        for (int i = 0; i < 40; i++)
+        for (int i = 0; i < 50; i++)
         {
             makeEel();
         }
@@ -29,8 +29,8 @@ public class SpawnEel : MonoBehaviour {
         GameObject making;
 
         float x = Random.Range(-200.0f, 200.0f);
-        float y = Random.Range(150.0f, 400.0f);
-        float z = Random.Range(-120.0f, 120.0f);
+        float y = Random.Range(100.0f, 400.0f);
+        float z = Random.Range(-150.0f, 150.0f);
         int w = Random.Range(-180, 180);
 
         //Debug.Log(w);

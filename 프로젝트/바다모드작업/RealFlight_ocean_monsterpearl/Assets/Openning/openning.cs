@@ -5,7 +5,7 @@ public class openning : MonoBehaviour {
     //public GameObject[] cloud;
 
     private bool startAnimation;
-	private bool rotateCamera;
+
 	public float moveTime = 3.0f;
 	private float time;
 	public GameObject destination;
@@ -16,7 +16,7 @@ public class openning : MonoBehaviour {
 	void Update () {
         
 		if (startAnimation) {
-			if (!rotateCamera) {
+			{
 				time += Time.deltaTime;
 				transform.Rotate (new Vector3 (0, 0, speed));
 				if (moveTime < time) {

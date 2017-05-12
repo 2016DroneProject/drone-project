@@ -38,7 +38,7 @@ public class GunShootingPearl : MonoBehaviour {
             {
                 ShootPearl();
                 shot = false;
-            }     
+            }
         }
 
         else if (stage_num.num == 2 && ((Input.GetMouseButtonDown(0) || shot == true )))
