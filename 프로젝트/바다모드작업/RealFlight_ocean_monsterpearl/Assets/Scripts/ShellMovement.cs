@@ -5,9 +5,9 @@ using UnityEngine;
 public class ShellMovement : MonoBehaviour {
     private Transform shotPos;
     private Rigidbody rb;
-    private float speed = 1.5f;
+
     public float power = 10f;
-    private float movement;
+
 
 
     GameObject stage;
@@ -30,7 +30,7 @@ public class ShellMovement : MonoBehaviour {
 
     void Update()
     {
-        movement = speed * Time.deltaTime;  // 매 프레임마다 이동 거리
+        // 매 프레임마다 이동 거리
         rb.AddForce(shotPos.transform.forward * power);
     }
 
@@ -42,8 +42,8 @@ public class ShellMovement : MonoBehaviour {
             {
                 ac.Play();
                 StageNum st = stage.GetComponent<StageNum>();
-                st.pearl_num += st.shell_num / 5;
-                st.shell_num = st.shell_num % 5;
+                st.pearl_num += st.shell_num / 2;
+                st.shell_num = st.shell_num % 2;
                 num++;
                 Destroy(this.gameObject, 2f);
             }

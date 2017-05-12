@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunShootingKey : MonoBehaviour {
 
     public GameObject stage;
-    StageNum stage_num;
+
 
     public Transform shotPos;
     public float shootRate;
@@ -20,7 +20,7 @@ public class GunShootingKey : MonoBehaviour {
     {
         shot = false;
 
-        stage_num = stage.GetComponent<StageNum>();
+
         ac = GetComponent<AudioSource>();
     }
 
@@ -32,7 +32,7 @@ public class GunShootingKey : MonoBehaviour {
         {
 
             ShootKey();
-               shot = false;
+            shot = false;
             
         }
 

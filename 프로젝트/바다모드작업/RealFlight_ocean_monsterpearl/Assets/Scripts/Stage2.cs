@@ -32,7 +32,7 @@ public class Stage2 : MonoBehaviour {
         height = GameObject.Find("Height");
         h_txt = height.GetComponent<Text>();
 
-        score = udporder.Sea_Score;
+        score = 0;
 
 
 

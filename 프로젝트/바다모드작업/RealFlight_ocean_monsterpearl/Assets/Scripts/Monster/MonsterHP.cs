@@ -152,7 +152,7 @@ public class MonsterHP : MonoBehaviour {
         {
             if (num == 0)
             {
-                score.SendMessage("AttackBat");
+                score.SendMessage("AttackEel");
                 makebat.SendMessage("makeEel");
                 num++;
             }

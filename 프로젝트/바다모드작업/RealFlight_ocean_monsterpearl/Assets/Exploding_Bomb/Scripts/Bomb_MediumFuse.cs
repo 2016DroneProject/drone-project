@@ -36,7 +36,6 @@ public class Bomb_MediumFuse : MonoBehaviour
 
     bool explo = false;
 
-    float size = 0.0f;
 
     bool stopmoving = false;
 

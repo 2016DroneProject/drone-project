@@ -16,7 +16,6 @@ public class DragoBatAttack : MonoBehaviour {
     private bool Alive;
     private bool PlayerInRange;
     private float timer;
-    private int count = 0;
 
     void Awake()
     {

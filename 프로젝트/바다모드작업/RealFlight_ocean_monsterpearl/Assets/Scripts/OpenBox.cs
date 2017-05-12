@@ -30,6 +30,12 @@ public class OpenBox : MonoBehaviour {
     bool desobj = false;
 
     public GameObject shine;
+
+
+
+    public GameObject parti;
+
+    bool clearsound = false;
     // Use this for initialization
     void Start () {
         ad = GetComponent<AudioSource>();
@@ -63,10 +69,19 @@ public class OpenBox : MonoBehaviour {
             {
                 ad.Stop();
 
-                if (this.tag == "Box")
-                    ad.clip = empty;
-                else
+
+                if (clearsound == true)
+                {
                     ad.clip = success;
+                    clearsound = false;
+                }
+
+
+                else
+                    ad.clip = empty;
+
+                if (desobj == true)
+                    parti.SetActive(true);
 
                 ad.Play();
                 open_start = false;
@@ -81,7 +96,7 @@ public class OpenBox : MonoBehaviour {
         if (start_timer == true)
         {
             timer += Time.deltaTime;
-            if (timer > 3.0f)
+            if (timer > 2.5f)
             {
                 //Debug.Log(timer);
 
@@ -110,7 +125,7 @@ public class OpenBox : MonoBehaviour {
             //Debug.Log(transform.rotation.x);
             if (transform.rotation.x > 0)
             {
-                this.transform.Rotate(50 * Time.deltaTime, 0, 0);
+                this.transform.Rotate(100 * Time.deltaTime, 0, 0);
                 is_closing = true;
 
 
@@ -146,6 +161,8 @@ public class OpenBox : MonoBehaviour {
         Destroy(obj.gameObject,0.5f);
         if(shine.GetComponent<ParticleSystem>()!= null)
             Destroy(shine.GetComponent<ParticleSystem>());
+        if (parti.GetComponent<ParticleSystem>() != null)
+            Destroy(parti.GetComponent<ParticleSystem>());
     }
 
     void desbool()
@@ -162,5 +179,14 @@ public class OpenBox : MonoBehaviour {
     void disactiveshine()
     {
         shine.SetActive(false);
+    }
+
+    
+    void playsound(bool clear)
+    {
+        if (clear == true)
+            clearsound = true;
+        else
+            clearsound = false;
     }
 }

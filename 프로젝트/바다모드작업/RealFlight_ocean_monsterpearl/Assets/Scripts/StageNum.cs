@@ -13,6 +13,12 @@ public class StageNum : MonoBehaviour {
 
     public int score;
 
+    public int eel_num;
+    public int shark_num;
+
+    Text eelnum;
+    Text sharknum;
+
     GameObject score_text;
 
     AudioSource ac;
@@ -22,10 +28,6 @@ public class StageNum : MonoBehaviour {
     GameObject Vaccum;
     GameObject Gun;
 
-
-
-
-
     GameObject height;
     Text h_txt;
     GameObject UDP;
@@ -33,6 +35,9 @@ public class StageNum : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        eelnum = GameObject.Find("EelNum").GetComponent<Text>();
+        sharknum = GameObject.Find("SharkNum").GetComponent<Text>();
 
         UDP = GameObject.Find("UDP");
         udporder = UDP.GetComponent<Order>();
@@ -54,7 +59,8 @@ public class StageNum : MonoBehaviour {
 	void Update () {
         scoretxt.text = "Score: " + score;
         h_txt.text = "HEIGHT"+" \n" + udporder.rcvPack.altitude + " M";
-
+        eelnum.text = eel_num + "";
+        sharknum.text = shark_num + "";
 
         udporder.Sea_Score = score;
 
@@ -111,13 +117,15 @@ public class StageNum : MonoBehaviour {
         score += 30;
     }
 
-    void AttackBat()
+    void AttackEel()
     {
+        eel_num++;
         score += 250;
     }
 
     void AttackShark()
     {
+        shark_num++;
         score += 500;
     }
 

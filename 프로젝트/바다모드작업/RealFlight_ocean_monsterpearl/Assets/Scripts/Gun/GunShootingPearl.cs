@@ -9,7 +9,7 @@ public class GunShootingPearl : MonoBehaviour {
     public Transform shotPos;
     public float shootRate;
 
-    private float nextShootRate;
+
 
 
     public bool shot; // udp 연결
@@ -34,7 +34,7 @@ public class GunShootingPearl : MonoBehaviour {
         if ((stage_num.num == 3 || stage_num.num == 4) && ((Input.GetMouseButtonDown(0)) ||( shot == true)))
         {
 
-            if(stage_num.pearl_num > 0)
+            if (stage_num.pearl_num > 0)
             {
                 ShootPearl();
                 shot = false;
@@ -48,7 +48,7 @@ public class GunShootingPearl : MonoBehaviour {
                 ShootShell();
                 shot = false;
             }
-            
+
         }
     }
 
@@ -56,7 +56,7 @@ public class GunShootingPearl : MonoBehaviour {
     {
         //
         ac.Play();
-        nextShootRate = Time.time + shootRate;
+
         // 진주 발사 부분
 
         stage_num.pearl_num--;
@@ -66,7 +66,7 @@ public class GunShootingPearl : MonoBehaviour {
     void ShootShell()
     {
         ac.Play();
-        nextShootRate = Time.time + shootRate;
+
         // 조개 발사 부분
         
         Instantiate(shell, shotPos.position, pearl.transform.rotation);

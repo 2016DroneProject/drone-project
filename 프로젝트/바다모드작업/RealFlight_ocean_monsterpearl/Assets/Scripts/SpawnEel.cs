@@ -29,7 +29,7 @@ public class SpawnEel : MonoBehaviour {
         GameObject making;
 
         float x = Random.Range(-200.0f, 200.0f);
-        float y = Random.Range(300.0f, 550.0f);
+        float y = Random.Range(150.0f, 400.0f);
         float z = Random.Range(-120.0f, 120.0f);
         int w = Random.Range(-180, 180);
 
