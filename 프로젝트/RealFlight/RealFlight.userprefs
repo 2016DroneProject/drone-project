@@ -1,0 +1,18 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Parse.cs">
+    <Files>
+      <File FileName="Assets\Scripts\EndUI2.cs" Line="13" Column="22" />
+      <File FileName="Assets\Scripts\Mission.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UDP\Order.cs" Line="13" Column="2" />
+      <File FileName="Assets\Scripts\Parse.cs" Line="23" Column="2" />
+      <File FileName="Assets\EndUI2_1.cs" Line="18" Column="18" />
+      <File FileName="Assets\Managetext2.cs" Line="66" Column="3" NotebookId="1" />
+      <File FileName="Assets\Scripts\Timer.cs" Line="1" Column="1" NotebookId="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
